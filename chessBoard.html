@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chass Board</title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <h2>Click to Show Chass Board</h2>
+      <button onclick="showChessBoard()">chass Board</button>
+      <br /><br />
+      <table id="table"></table>
+    </div>
+
+    <script>
+      const table = document.getElementById('table');
+      function showChessBoard() {
+        for (let index = 1; index <= 8; index++) {
+          if (index % 2 !== 0) {
+            //add tr
+            const oddRow = document.createElement('tr');
+            for (let jndex = 1; jndex <= 8; jndex++) {
+              if (jndex % 2 !== 0) {
+                //odd Number column
+                // console.log(jndex);
+                //white
+                // add td
+                const oddOddColumn = document.createElement('td');
+                oddOddColumn.style.width = '50px';
+                oddOddColumn.style.height = '50px';
+                oddRow.appendChild(oddOddColumn);
+              } else {
+                //even Number column
+                // console.log(jndex);
+                //black
+                // add td
+                const oddEvenColumn = document.createElement('td');
+                oddEvenColumn.style.backgroundColor = 'black';
+                oddEvenColumn.style.width = '50px';
+                oddEvenColumn.style.height = '50px';
+                oddRow.appendChild(oddEvenColumn);
+              }
+            }
+            table.appendChild(oddRow);
+          } else {
+            //add tr
+            const evenRow = document.createElement('tr');
+            for (let jndex = 1; jndex <= 8; jndex++) {
+              if (jndex % 2 !== 0) {
+                //odd Number column
+                // console.log(jndex);
+                //black
+                //add td
+                const evenOddColumn = document.createElement('td');
+                evenOddColumn.style.backgroundColor = 'black';
+                evenOddColumn.style.width = '50px';
+                evenOddColumn.style.height = '50px';
+                evenRow.appendChild(evenOddColumn);
+              } else {
+                //even Number column
+                // console.log(jndex);
+                //white
+                //add td
+                const evenEvenColumn = document.createElement('td');
+                evenEvenColumn.style.width = '50px';
+                evenEvenColumn.style.height = '50px';
+                evenRow.appendChild(evenEvenColumn);
+              }
+            }
+            table.appendChild(evenRow);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+ 
